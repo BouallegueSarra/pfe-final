@@ -1,0 +1,97 @@
+<app-header-etudiant></app-header-etudiant>
+
+<div class="pc-container">
+  <div class="pcoded-content">
+
+
+    <div *ngIf="inforUsers.niveau !=null">
+
+      <div class="row justify-content-md-center">
+
+
+
+
+
+        <div class="col-md-12 col-lg-8">
+          <div class="card proj-t-card">
+            <div class="card">
+              <div class="card-body text-center">
+
+
+                <h2 class="m-t-20"> Votre niveau :</h2>
+                <h1 class="m-t-20" class="niv-style"><span class="" style="color: #7257EB;">{{inforUsers.niveau}}</span>
+                </h1>
+
+                <button [routerLink]="['/consultCours']" class="btn  btn-md btn-round"
+                  style="color: white; background-color:#003366;"><i class="fa fa-eye pr-2"></i>Voir le cours</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+
+    <div *ngIf="inforUsers.niveau ==null">
+
+      <div *ngIf="!quizOver">
+        <div class="text-center pt-3">
+          <div id="fh5co-logo"><a>Test de niveau</a></div>
+        </div>
+        <div>
+          <div class="container mt-sm-5 my-1">
+
+            <app-question-niveau [questionIndex]="currentIndex" (answers)="receiveAnswers($event)"
+              (totalQuestions)="getTotalQuestions($event)">
+            </app-question-niveau>
+            <div class="d-flex align-items-center pt-3">
+
+              <button type="button" class="btn btn-primary col-2 offset-9" *ngIf="currentIndex<totalQuestions-1"
+                (click)="goNext()">Suivant</button>
+              <button type="button" class="btn btn-primary   col-2 offset-9" *ngIf="currentIndex==totalQuestions-1"
+                (click)="goNext()">Confirmer</button>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div *ngIf="quizOver" class="border">
+
+        <div class="col-md-12 col-lg-8">
+
+          <div class=" card col-12 offset-4">
+            <div class="card-body text-center">
+
+
+              <h2 class="m-t-20"> Félicitations</h2>
+              <hr>
+              <h1 class="m-t-20">Votre score de test de Niveau est : <span>{{score}}
+                  points</span> </h1>
+
+              <div class="card-body text-center">
+
+
+                <h2 class="m-t-20"> Votre niveau :</h2>
+                <h1 class="m-t-20" class="niv-style"><span style="color: #7257EB;"> {{this.niveau}}</span> </h1>
+
+                <button [routerLink]="['/consultCours']" class="btn  btn-md btn-round"
+                  style="color: white; background-color:#003366;"><i class="fa fa-eye pr-2"></i>Voir le cours</button>
+              </div>
+
+
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

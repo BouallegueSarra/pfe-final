@@ -1,0 +1,41 @@
+<form [formGroup]="contact" (ngSubmit)="contacter()">
+  <table class="form-style" style="width:100%">
+
+    <tr>
+      <td class="form-group mb-0 mt-2">
+        <label class="control-label">Sujet : </label>
+        <input type="text" class="form-control" placeholder="sujet" formControlName="sujet" />
+        <div *ngIf="sujet.touched && sujet.invalid">
+          <small *ngIf="sujet.errors.required" class="text-danger"> Le sujet est
+            obligatoire<br></small>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+
+        <div class="form-group mb-0 mt-2">
+          <label class="control-label">Message : </label>
+          <textarea id="story" name="story" class="form-control" rows="5" cols="33" formControlName="message"
+            formControlName="message"></textarea>
+
+        </div>
+        <div *ngIf="message.touched && message.invalid">
+          <small *ngIf="message.errors.required" class="text-danger"> Le message est
+            obligatoire<br></small>
+        </div>
+
+      </td>
+    </tr>
+    <tr class="pt-2">
+      <td class="pt-3">
+
+        <button mat-button [mat-dialog-close]="true" [disabled]="contact.invalid" class="btn btn-primary mr-3 "
+          (click)='contacter()'>Envoyer</button>
+        <button mat-dialog-close type="reset" class="btn btn-danger">Annuler</button>
+
+
+      </td>
+    </tr>
+  </table>
+</form>

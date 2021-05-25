@@ -1,0 +1,221 @@
+<app-header-prof></app-header-prof>
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Liste des questions de test d'évaluation</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body">
+                            <div *ngIf="alert==true" class="alert alert-success alert-dismissible fade show"
+                                role="alert">
+                                <i class="fas fa-check pr-2"></i>{{msg}}
+                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                            </div>
+                            <div class="row align-items-center m-l-0">
+                                <div class="col-sm-6">
+                                </div>
+                            </div>
+                            <div class='add text-right'>
+
+                                <button (click)="openDialogAjout()" mat-button class="btn  btn-sm mb-3 btn-round"
+                                    style="color: white; background-color:#003366;"><i
+                                        class="feather icon-plus"></i>Ajouter
+                                    une question</button>
+
+
+                            </div>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#question"
+                                        role="tab" aria-controls="home" aria-selected="true">Liste des questions</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#archive" role="tab"
+                                        aria-controls="profile" aria-selected="false">Liste des questions archivées</a>
+                                </li>
+
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-content" id="myTabContent">
+                                    <!--******************************************** Liste des questions *********************************************** -->
+
+                                    <div class="tab-pane fade show active" id="question" role="tabpanel"
+                                        aria-labelledby="home-tab">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card " *ngFor="let test of listTest">
+
+                                                    <div *ngIf="test.etat==true">
+
+                                                        <div class="card-header"
+                                                            style="padding-bottom: 10px; padding-top:10px; padding-right: 10px;">
+                                                            <h5>{{test.question}}
+                                                                <span style="font-size: 13px;"
+                                                                    class="mr-2 badge bg-secondary bg-info"
+                                                                    *ngIf="test.bareme==1">{{test.bareme}} point</span>
+                                                                <span style="font-size: 13px;"
+                                                                    class="ml-4 badge bg-secondary bg-info"
+                                                                    *ngIf="test.bareme>1">{{test.bareme}} points</span>
+                                                            </h5>
+
+                                                        </div>
+                                                        <ul class="list-nav">
+
+                                                            <div class="card-body widget-last-task">
+                                                                <div class="new-task">
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li>{{test.reponse[0]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li> {{test.reponse[1]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li> {{test.reponse[2]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li> {{test.reponse[3]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <span style="color: green;"
+                                                                                    class="pr-2">&#10004;</span>{{test.correct}}
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="right-icon-control m-t-15">
+                                                                    <button mat-button (click)="openDialog(test._id)"
+                                                                        class="btn btn-success btn-sm"><span
+                                                                            class="material-icons"
+                                                                            style="font-size:18px;">mode_edit_outline</span>Modifier
+                                                                    </button>
+
+
+                                                                    <button mwlConfirmationPopover
+                                                                        [popoverTitle]="popoverTitle1"
+                                                                        class="btn btn-danger btn-sm  ml-2"
+                                                                        [popoverMessage]="popoverMessage1"
+                                                                        placement="right" (confirm)="archiver(test._id)"
+                                                                        (cancel)="cancelClicked = true"> <i
+                                                                            class="fas fa-ban pr-2"></i>Archiver
+                                                                    </button>
+
+                                                                </div>
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- ******************************************** Liste des questions ***********************************************  -->
+
+                                    <div class="tab-pane fade" id="archive" role="tabpanel"
+                                        aria-labelledby="profile-tab">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="card " *ngFor="let test of listTest">
+                                                    <div *ngIf="test.etat==false">
+
+
+                                                        <div class="card-header"
+                                                            style="padding-bottom: 10px; padding-top:10px; padding-right: 10px;">
+                                                            <h5>{{test.question}}
+                                                                <span style="font-size: 13px;"
+                                                                    class="mr-2 badge bg-secondary bg-info"
+                                                                    *ngIf="test.bareme==1">{{test.bareme}} point</span>
+                                                                <span style="font-size: 13px;"
+                                                                    class="ml-4 badge bg-secondary bg-info"
+                                                                    *ngIf="test.bareme>1">{{test.bareme}} points</span>
+                                                            </h5>
+
+                                                        </div>
+                                                        <ul class="list-nav">
+
+                                                            <div class="card-body widget-last-task">
+                                                                <div class="new-task">
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li>{{test.reponse[0]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li> {{test.reponse[1]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li> {{test.reponse[2]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <li> {{test.reponse[3]}}</li>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="to-do-list mb-3">
+                                                                        <div class="d-inline-block">
+                                                                            <div class="check-task form-check">
+                                                                                <span style="color: green;"
+                                                                                    class="pr-2">&#10004;</span>{{test.correct}}
+                                                                            </div>
+                                                                            Bareme : {{test.bareme}}
+                                                                        </div>
+                                                                    </div>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

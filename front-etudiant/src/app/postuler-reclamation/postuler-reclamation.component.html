@@ -1,0 +1,129 @@
+<div *ngIf="inforUsers.role=='etudiant'">
+    <app-header-etudiant></app-header-etudiant>
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Réclamation</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="col-md-6 offset-md-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <form class="login-form form-group"
+                                                        [formGroup]="ajouterReclamation">
+                                                        <div>
+                                                            <label class="control-label" for="name">Sujet :</label>
+                                                            <input type="text" id="sujrt" name="sujrt"
+                                                                class="form-control" formControlName="sujet">
+                                                        </div>
+                                                        <div *ngIf="sujet.touched && sujet.invalid">
+                                                            <small *ngIf="sujet.errors.required" class="text-danger"> Le
+                                                                sujet est obligatoire
+                                                                <br></small>
+                                                        </div>
+                                                        <div>
+                                                            <label class="control-label mt-3" for="msg">Probléme
+                                                                :</label>
+                                                            <textarea id="msg" class="form-control" rows="5" cols="33"
+                                                                name="user_message"
+                                                                formControlName="reclamation"></textarea>
+                                                        </div>
+                                                        <div *ngIf="reclamation.touched && reclamation.invalid">
+                                                            <small *ngIf="reclamation.errors.required"
+                                                                class="text-danger"> Le problème est obligatoire
+                                                                <br></small>
+                                                        </div>
+                                                        <div class="pt-3 offset-md-10">
+                                                            <button type="button"
+                                                                [disabled]="ajouterReclamation.invalid"
+                                                                (click)="addReclamation()"
+                                                                style="color: white; background-color:#003366;"
+                                                                class="btn  btn-md">Envoyer</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="inforUsers.role=='professeur'">
+    <app-header-prof></app-header-prof>
+    <div class="pc-container">
+        <div class="pcoded-content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h5>Réclamation</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                    aria-labelledby="home-tab">
+                                    <div class="col-md-6 offset-md-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="table-responsive">
+                                                    <form class="login-form form-group"
+                                                        [formGroup]="ajouterReclamation">
+                                                        <div>
+                                                            <label class="control-label" for="name">Sujet :</label>
+                                                            <input type="text" id="sujrt" name="sujrt"
+                                                                class="form-control" formControlName="sujet">
+                                                        </div>
+                                                        <div *ngIf="sujet.touched && sujet.invalid">
+                                                            <small *ngIf="sujet.errors.required" class="text-danger"> Le
+                                                                sujet est obligatoire
+                                                                <br></small>
+                                                        </div>
+                                                        <div>
+                                                            <label class="control-label mt-3" for="msg">Probléme
+                                                                :</label>
+                                                            <textarea id="msg" class="form-control" rows="5" cols="33"
+                                                                name="user_message"
+                                                                formControlName="reclamation"></textarea>
+                                                        </div>
+                                                        <div *ngIf="reclamation.touched && reclamation.invalid">
+                                                            <small *ngIf="reclamation.errors.required"
+                                                                class="text-danger"> Le problème est obligatoire
+                                                                <br></small>
+                                                        </div>
+                                                        <div class="pt-3 offset-md-10">
+                                                            <button type="button"
+                                                                [disabled]="ajouterReclamation.invalid"
+                                                                (click)="addReclamation()"
+                                                                style="color: white; background-color:#003366;"
+                                                                class="btn  btn-md">Envoyer</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

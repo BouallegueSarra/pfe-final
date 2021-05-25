@@ -1,0 +1,147 @@
+<div class="loader-bg">
+        <div class="loader-track">
+                <div class="loader-fill"></div>
+        </div>
+</div>
+
+<div class="pc-mob-header pc-header">
+        <div class="pcm-logo">
+                <img src="../../../assets/assets/images/logo.svg" alt="" class="logo logo-lg">
+        </div>
+        <div class="pcm-toolbar">
+                <a href="#!" class="pc-head-link" id="mobile-collapse">
+                        <div class="hamburger hamburger--arrowturn">
+                                <div class="hamburger-box">
+                                        <div class="hamburger-inner"></div>
+                                </div>
+                        </div>
+                </a>
+                <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                        <i data-feather="align-right"></i>
+                </a>
+                <a href="#!" class="pc-head-link" id="header-collapse">
+                        <i data-feather="more-vertical"></i>
+                </a>
+        </div>
+</div>
+<nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+                <div class="m-header">
+                        <a href="index-2.html" class="b-brand">
+                                <img src="../../../assets/logo_final.png" alt="" width="50%" class="logo logo-lg">
+                        </a>
+                </div>
+                <div class="navbar-content">
+                        <ul class="pc-navbar">
+
+                                <a class="pc-head-link dropdown-toggle arrow-none me-0 " data-bs-toggle="dropdown"
+                                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                        <img src="../../../assets/imageProfil/{{inforUsers.photo}}"
+                                                class="user-avtar user-prof img-radius img-fluid wid-120 "
+                                                style="width: 45%; ">
+                                        <div class="text-center pt-3">
+                                                <h1>
+                                                        <span class="user-name user-name2 ">{{inforUsers.nom}}
+                                                                {{inforUsers.prenom}}</span>
+                                                </h1>
+                                        </div>
+                                </a>
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/profil']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">account_circle</i></span><span
+                                                        class="pc-mtext">Mon profil</span></a>
+                                </li>
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/afficheTestNiveau']" class="pc-link"><span
+                                                        class="pc-micon"><i
+                                                                class="material-icons-two-tone">fact_check</i></span><span
+                                                        class="pc-mtext">Gestion de test de niveau </span></a>
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/afficheCours']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">menu_book</i></span><span
+                                                        class="pc-mtext">Gestion des cours</span></a>
+
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/afficheTestEvaluation']" class="pc-link "><span
+                                                        class="pc-micon"><i
+                                                                class="material-icons-two-tone">wysiwyg</i></span><span
+                                                        class="pc-mtext">Gestion de test d'évaluation</span></a>
+                                        <ul class="pc-submenu">
+                                                <li class="pc-item" ><a class="pc-link"
+                                                                [routerLink]="['/afficheTestEvaluation']">Liste des
+                                                                questions</a></li>
+                                                                
+                                                <li class="pc-item" *ngIf="parametre==null"><a class="pc-link"
+                                                                [routerLink]="['/addParametre']">Ajouter les
+                                                                paramètre</a></li>
+                                                <li class="pc-item" *ngIf="nb!=0"><a class="pc-link"
+                                                                [routerLink]="['/updateParametre']">Modifier les
+                                                                paramètre </a></li>
+
+                                        </ul>
+                                </li>
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/listEtudiant']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">forum</i></span><span
+                                                        class="pc-mtext">Liste des étudiant</span></a>
+
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/listContactProf']" class="pc-link "><span
+                                                        class="pc-micon"><i
+                                                                class="material-icons-two-tone">chat</i></span><span
+                                                        class="pc-mtext">Message</span></a>
+
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/addReclamation']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">notification_important</i></span><span
+                                                        class="pc-mtext">Réclamations</span></a>
+
+                                </li>
+
+                        </ul>
+                </div>
+        </div>
+</nav>
+
+
+
+
+<header class="pc-header ">
+        <div class="header-wrapper">
+
+                <div class="ms-auto">
+                        <ul class="list-unstyled">
+
+                                <li class="dropdown pc-h-item">
+                                        <a [routerLink]="['/profil']"
+                                                class="pc-head-link dropdown-toggle arrow-none me-0">
+                                                <img src="../../../assets/imageProfil/avatar.png" alt="user-image"
+                                                        class="user-avtar">
+
+                                                <span>
+                                                        <span class="user-name">{{inforUsers.nom}}
+                                                                {{inforUsers.nom}}</span>
+                                                </span>
+                                        </a>
+
+                                </li>
+                                <li class="dropdown pc-h-item">
+
+                                        <h5 class="text-right" (click)="logout()"> <span class="material-icons"
+                                                        style="font-size:34px;margin-top: 10px;margin-right: 15px; color: #222f4f ;">
+                                                        logout
+                                                </span></h5>
+
+                                </li>
+                        </ul>
+                </div>
+
+        </div>
+</header>

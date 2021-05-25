@@ -1,0 +1,74 @@
+<app-header-prof></app-header-prof>
+
+
+<div class="pc-container">
+    <div class="pcoded-content">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+
+                    <div class="card-body">
+
+                        <div *ngIf="alert==true" class="alert alert-success alert-dismissible fade show"
+                                role="alert">
+                                <i class="fas fa-check pr-2"></i>{{msg}}
+                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        <div id="cke5-inline-demo">
+                            <header class="ck-content  chap1" data-inline-inject="true">
+                                <h2 class="titre-princ">{{cours.titreprincipal}}</h2>
+                            </header>
+
+                            <div class='add text-right'>
+
+
+                                <button *ngIf="cours.etat==true" (click)="openDialogAjout(cours._id)" mat-button
+                                    class="btn  btn-sm mb-3 btn-round"
+                                    style="color: white; background-color:#003366;"><i
+                                        class="feather icon-plus"></i>Ajouter
+                                    une
+                                    section </button>
+
+                            </div>
+                            <div *ngFor="let Paragraphe of listParagraphe">
+                                <div class="ck-content section-bloc ck-content1" data-inline-inject="true">
+                                    <h3 class="parag-titre">{{Paragraphe.titre}}</h3>
+                                    <hr>
+
+                                    <p>{{Paragraphe.description}}</p>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <img src="../../../../assets/cours/{{Paragraphe.image}}" alt="photo"
+                                                width="600" height="400">
+
+
+                                        </div>
+
+                                        <div class="col-6">
+                                            <video id="video1" width="400" height="400" controls>
+                                                <source src="../../../../assets/cours/video/{{Paragraphe.video}}">
+
+                                            </video>
+                                        </div>
+                                    </div>
+
+                                    <div class=" pt-3 pb-3 ">
+                                        <button mat-button *ngIf="cours.etat==true"
+                                            (click)="openDialogModif(Paragraphe._id)" type="button" style="width: 10%;"
+                                            class="btn btn-success btn-sm pull-right " style=" float: right; "><i
+                                                class="fas fa-edit pr-2"></i>Modifier</button>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,119 @@
+<mat-dialog-content > 
+    <div>
+        <form [formGroup]="addProf" (ngSubmit)="addProfesseur()"> 
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group mb-0 mt-2">
+                        <label class="form-label" for="Name" >Nom</label>
+                        <input type="text" class="form-control" id="Name" placeholder="" formControlName="nom">
+                    </div>
+                    <div *ngIf="nom.touched && nom.invalid">
+                        <small *ngIf="nom.errors.required" class="text-danger"> Nom est obligatoire<br></small>
+                        <small *ngIf="nom.errors.pattern || nom.errors.minlength" class="text-danger"> Nom est
+                            incorrect<br></small>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group mb-0 mt-2">
+                        <label class="form-label" for="Email" >Prénom</label>
+                        <input type="email" class="form-control" id="Email" placeholder="" formControlName="prenom">
+                    </div>
+                    <div *ngIf="prenom.touched && prenom.invalid">
+                        <small *ngIf="prenom.errors.required" class="text-danger"> Prénom est
+                            obligatoire<br></small>
+                        <small *ngIf="prenom.errors.minlength" class="text-danger"> Prénom est incorrect<br></small>
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <div class="form-group mb-0 mt-2">
+                        <label class="form-label" for="Address" >Adresse email</label>
+                        <input type="texte"  class="form-control" id="Address" formControlName="email"/>
+                    </div>
+                    <div *ngIf="email.touched && email.invalid">
+                        <small *ngIf="email.errors.required" class="text-danger"> L'adresse email est
+                            obligatoire<br></small>
+                        <small *ngIf="email.errors.email" class="text-danger"> L'adresse email est incorrect<br></small>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group mb-0 mt-2">
+                        <label class="form-label" for="password">Mot de passe</label>
+                        <input type="password" class="form-control" id="password" formControlName="mot_passe" />
+                    </div>
+                    <div *ngIf="mot_passe.touched && mot_passe.invalid">
+                        <small *ngIf="mot_passe.errors.required" class="text-danger"> Le mot de passe est
+                            obligatoire<br></small>
+                        <small *ngIf="mot_passe.errors.minlength" class="text-danger"> Le mot de passe est incorrect
+                            <br></small>
+                    </div>
+                </div>
+
+                <div class="col-12"> 
+                    <div class="form-group mb-0 mt-2">
+                        <label class="control-label">Genre</label>
+                    </div>
+                    <div class="col-12">
+                    
+                            <input class="form-check-input" type="radio" name="genre" id="homme" value="homme" checked
+                                formControlName="genre">
+                            <label class="form-check-label mr-5" for="homme">
+                                Homme</label>
+                         
+                            <input class="form-check-input" type="radio" name="genre" id="femme" value="femme"
+                                formControlName="genre">
+                            <label class="form-check-label" for="femme">
+                                Femme</label>
+                   
+                        <div *ngIf="genre.touched && genre.invalid">
+                            <small *ngIf="genre.errors.required" class="text-danger"> Genre est obligatoire
+                                <br></small>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group mb-0 mt-2">
+                        <label class="form-label" for="niveau" >Niveau</label>
+                        <select class="form-control" id="niveau" formControlName="niveau">
+                            <option value=""></option>
+                            <option value="A1">A1</option>
+                            <option value="A2">A2</option>
+                            <option value="B2">B1</option>
+                            <option value="B2">B2</option>
+                            <option value="C2">C1</option>
+                            <option value="C2">C2</option>
+                        </select>
+                        <div *ngIf="niveau.touched && niveau.invalid">
+                            <small *ngIf="niveau.errors.required" class="text-danger"> Niveau est obligatoire
+                                <br></small>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group mb-0 mt-2">
+                        <label class="form-label" for="Age">Téléphone</label>
+                        <input type="text" class="form-control" id="Age" placeholder="" formControlName="telephone">
+                    </div>
+                    <div *ngIf="telephone.touched && telephone.invalid">
+                        <small *ngIf="telephone.errors.required" class="text-danger"> Le téléphone est
+                            obligatoire<br></small>
+                        <small *ngIf="telephone.errors.minlength || telephone.errors.maxlength || telephone.errors.pattern"
+                            class="text-danger"> Le téléphone est incorrect <br></small>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+
+                    <button mat-button [mat-dialog-close]="true" class="btn  mr-3"style="color: white; background-color:#003366;" (click)="addProfesseur()"
+                    [disabled]="addProf.invalid">Ajouter</button>
+                    <button mat-button mat-dialog-close class="btn btn-danger">Annuler</button> 
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+ </mat-dialog-content> 
+

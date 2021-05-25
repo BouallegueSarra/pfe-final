@@ -1,0 +1,186 @@
+<div class="auth-wrapper">
+    <div class="auth-content">
+        <div class="card">
+            <div class="row align-items-center ">
+                <div class="col-md-12">
+                    <div class="card-body">
+
+                        <div class="text-center">
+                            <div id="fh5co-logo" class="pb-5"><a >
+                                <img src="../../../assets/let's start-blanc.png" alt=""   width="20%" class="logo logo-lg">
+                            </a></div>
+                            <h4 class="mb-3 f-w-400" style="font-weight: bold;">Inscription</h4>
+                    </div>
+                        <form class="login-form" [formGroup]="inscriptionForm" (ngSubmit)="addEtudiant()">
+
+                            <div *ngIf="alert==false" class="alert alert-danger alert-dismissible fade show"
+                                role="alert">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                                    class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+                                </svg>&nbsp;&nbsp;{{msg}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Nom</label>
+                                        <input type="text" class="form-control" placeholder="First Name"
+                                            formControlName="nom" />
+                                    </div>
+                                    <div *ngIf="nom.touched && nom.invalid">
+                                        <small *ngIf="nom.errors.required" class="text-danger"> Nom est
+                                            obligatoire<br></small>
+                                        <small *ngIf="nom.errors.pattern || nom.errors.minlength" class="text-danger">
+                                            Nom est
+                                            incorrect<br></small>
+                                    </div>
+                                </div>
+
+                                <div class="col-14 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Prénom</label>
+                                        <input type="text" class="form-control" placeholder="Last Name"
+                                            formControlName="prenom" />
+                                    </div>
+                                    <div *ngIf="prenom.touched && prenom.invalid">
+                                        <small *ngIf="prenom.errors.required" class="text-danger"> Prénom est
+                                            obligatoire<br></small>
+                                        <small *ngIf="prenom.errors.minlength" class="text-danger"> Prénom est
+                                            incorrect<br></small>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 ">
+                                    <div class="form-group">
+                                        <label class="control-label">Adresse e-mail </label>
+                                        <input type="email" class="form-control" placeholder="Email"
+                                            formControlName="email" />
+                                    </div>
+                                    <div *ngIf="email.touched && email.invalid">
+                                        <small *ngIf="email.errors.required" class="text-danger"> L'adresse email est
+                                            obligatoire<br></small>
+                                        <small *ngIf="email.errors.email" class="text-danger"> L'adresse email est
+                                            incorrect<br></small>
+                                    </div>
+                                </div>
+
+                                <div class="col-14 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Mot de passe </label>
+                                        <input type="password" class="form-control" placeholder="Username"
+                                            formControlName="mot_passe" />
+                                    </div>
+                                    <div *ngIf="mot_passe.touched && mot_passe.invalid">
+                                        <small *ngIf="mot_passe.errors.required" class="text-danger"> Le mot de passe
+                                            est
+                                            obligatoire<br></small>
+                                        <small *ngIf="mot_passe.errors.minlength" class="text-danger"> Le mot de passe
+                                            est
+                                            incorrect <br></small>
+                                    </div>
+                                </div>
+
+                                <div class="col-14 col-sm-6">
+                                    <div class="form-group">
+                                        <label class="control-label">Confirmer votre mot de passe</label>
+                                        <input type="password" class="form-control" placeholder="Password"
+                                            formControlName="mot_passe2" />
+                                    </div>
+                                    <div *ngIf="mot_passe2.touched && mot_passe2.invalid">
+                                        <small *ngIf="mot_passe2.errors.required" class="text-danger"> Le mot de passe
+                                            est
+                                            obligatoire<br></small>
+                                        <small *ngIf="mot_passe2.errors.minlength" class="text-danger"> Le mot de passe
+                                            doit
+                                            contient au minimum 6 caracteres <br></small>
+                                    </div>
+
+                                    <div *ngIf="mot_passe2.touched && mot_passe2.invalid">
+                                        <small *ngIf="mot_passe2.errors.required" class="text-danger"> Le mot de passe
+                                            est
+                                            obligatoire<br></small>
+                                        <small
+                                            *ngIf="mot_passe2.errors.minlength || mot_passe2.valid && mot_passe2.value != mot_passe.value"
+                                            class="text-danger"> Le mot de passe est incorrect <br></small>
+                                    </div>
+
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Genre</label>
+                                    </div>
+                                    <div class="col-5">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genre" id="homme"
+                                                value="homme" checked formControlName="genre">
+                                            <label class="form-check-label" for="homme">Homme</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genre" id="femme"
+                                                value="femme" formControlName="genre">
+                                            <label class="form-check-label" for="femme">Femme</label>
+                                        </div>
+                                        <div *ngIf="genre.touched && genre.invalid">
+                                            <small *ngIf="genre.errors.required" class="text-danger"> Genre est
+                                                obligatoire
+                                                <br></small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div >
+                                    <div class="form-group">
+                                        <label class="control-label">Date de naissance</label>
+                                        <input class="form-control" type='date' placeholder="00/00/0000"
+                                            formControlName="date_naissance" id="date_naissance"
+                                            name="date_naissance" />
+                                    </div>
+                                    <div *ngIf="date_naissance.touched && mot_passe.invalid">
+                                        <small *ngIf="date_naissance.errors.required" class="text-danger"> La date de
+                                            naissance est
+                                            obligatoire<br></small>
+                                    </div>
+                                </div>
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <label class="control-label">Télèphone</label>
+                                        <input type="text" class="form-control" placeholder="Télèphone"
+                                            formControlName="telephone" />
+                                    </div>
+
+                                    <div *ngIf="telephone.touched && telephone.invalid">
+                                        <small *ngIf="telephone.errors.required" class="text-danger"> Le téléphone est
+                                            obligatoire<br></small>
+                                        <small
+                                            *ngIf="telephone.errors.minlength || telephone.errors.maxlength || telephone.errors.pattern"
+                                            class="text-danger"> Le téléphone est incorrect <br></small>
+                                    </div>
+                                </div>
+                              
+                         
+                                
+                                <div class="col-12 mt-3">
+                                    <button class="btn btn-primary btn-block mb-4 "  >S'inscrire</button>
+
+                                </div>
+
+                                <div class="col-12  mt-3">
+                                    <p>Vous avez déjà un compte ? <a routerLink="/login"> Connectez-vous</a></p>
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

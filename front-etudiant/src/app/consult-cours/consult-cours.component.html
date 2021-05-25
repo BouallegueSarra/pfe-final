@@ -1,0 +1,63 @@
+<app-header-etudiant></app-header-etudiant>
+
+
+<div class="pc-container">
+    <div class="pcoded-content">
+       
+            
+        <div *ngIf="infoUser.niveau ==null">
+            <div class="col-md-12 col-lg-8">
+                <div class="card proj-t-card">
+                    <div class="card">
+                      
+                        <div class="card-body text-center">
+                            <h2 class="m-t-20"> Veuillez-vous passer un test de niveau avant</h2>
+                            <button class="btn btn-success btn-md btn-round" [routerLink]="['/quizNiveau']"><i
+                                    class="fa fa-eye pr-2"></i> Passer un test de niveau </button>
+                        </div>
+                        <h6 class="pt-badge bg-light-success text-success"> <i class="fas fa-level-up-alt fa-4x "></i>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div *ngIf="listCours.length==0">
+            <div class="alert alert-danger" role="alert">
+                Aucun chapitre
+            </div>
+        </div>
+        <div class="row">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Liste des cours </h5>
+                </div>
+                <div class="col-md-12" *ngIf="infoUser.niveau !=null">
+                    <div class="row mt-5 ">
+                        <div *ngFor="let cours of listCours" class="col-md-4 col-sm-6 col-12">
+                            <div *ngIf="cours.etat==true">
+                                <div class="card">
+                                    <div class="card-body text-center">
+                                        <h2 class="m-t-20"> {{cours.titreprincipal}}</h2>
+                                        <button mat-button [routerLink]="['/detailsCoursEtud',cours._id]" type="button"
+                                            class="btn btn-info btn-sm"><i class="fas fa-edit pr-2"></i>Détails</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row ">
+                        <div class="col-3 offset-9 mb-5">
+                            <button class="btn  " style="color: white; background-color:#003366;"
+                                *ngIf="listCours.length!=0" [routerLink]="['/quizEvaluation']"> Passer un test
+                                d'évaluation</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+

@@ -1,0 +1,29 @@
+<h2 mat-dialog-title></h2>
+<mat-dialog-content class="mat-typography">
+    <div class="container">
+        <div class="logo">
+            An Organization
+        </div>
+
+        <div class="marquee">
+            Certificate of Completion
+        </div>
+
+        <div class="assignment">
+            This certificate is presented to
+        </div>
+
+        <div class="person">
+            {{inforUsers.nom.substr(0,1) | uppercase }}{{inforUsers.nom.substr(1, inforUsers.nom.length-1) |lowercase }}  {{inforUsers.prenom.substr(0,1) | uppercase }}{{inforUsers.prenom.substr(1, inforUsers.prenom.length-1) |lowercase }}
+
+        </div>
+
+        <div class="reason">
+            For successfuly completing the course in niveau :<br/>
+            
+        </div> 
+        <div class="person">
+          {{data.niv}}  
+        </div>
+    </div>
+</mat-dialog-content>

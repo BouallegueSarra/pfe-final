@@ -1,0 +1,22 @@
+.chap1{
+
+    background-color: #7267ef87 !important;
+    color:white !important;
+    padding:5px !important;
+
+}
+
+
+.titre-princ{
+    font-size: 25px !important;
+}
+
+.parag-titre{
+    font-size: 23px !important;
+}
+
+
+.section-bloc{border: 2px solid #7267ef85 !important;
+    border-bottom: 15px solid #7267ef85 !important;
+
+}

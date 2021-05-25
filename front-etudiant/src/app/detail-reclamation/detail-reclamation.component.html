@@ -1,0 +1,26 @@
+
+
+
+<div class="row" style="width:600px ">
+    <div class="col-12">
+        <h2 class="m-t-20"> Réclamation</h2>
+
+        <p style="font-size:14px; color:grey"> <i class="fas fa-clock"></i> {{inforReclamation.date | date:'M/d/yyyy, HH:mm'}} </p>
+
+        <hr>
+        <form action="/ma-page-de-traitement" method="post">
+         
+            <h4 class="m-t-20"><span class="text-primary">Email  :</span> {{inforReclamation.email}} </h4>
+            <h4 class="m-t-20"><span class="text-primary">Sujet :</span> {{inforReclamation.sujet}} </h4>
+            <h4 class="m-t-20"><span class="text-primary">Réclamation :</span> {{inforReclamation.reclamation}} </h4>
+                     <div class="offset-9"> 
+                        <button mat-button mat-dialog-close class="btn btn-danger">Retour</button>
+                     </div>
+          
+        </form>
+    </div>
+
+</div>
+
+
+

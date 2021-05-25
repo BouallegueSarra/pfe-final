@@ -1,0 +1,33 @@
+.container {
+    background-color: white;;
+    color: rgb(85, 83, 83);
+    border-radius: 10px;
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif;
+    width: 800px; 
+    height: 350px;
+}
+
+.container>p {
+    font-size: 50px
+}
+
+.niv-style{
+    font-size: 35px;
+    font-weight:bolder;}
+
+#fh5co-logo {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-weight: 800;
+    font-family: "Work Sans", Arial, sans-serif;
+    text-decoration:none; 
+
+
+  }
+
+ #fh5co-logo a span {
+    color: #7257EB;
+
+  }

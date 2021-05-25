@@ -1,0 +1,52 @@
+.bloc{
+    background-color: #f7f7ff;
+    height: 100%;
+    width: auto;
+    padding-top: 70px;
+}
+
+.blocModifProf{
+    margin-left: 23%;
+    margin-right: 4%;
+    height: 75%;
+    background-color: white;
+}
+
+p{
+    padding-bottom: 20px;
+    margin-left: 23%;
+    font-weight:bold;
+    font-size: 20px;}
+    #btnmodif {
+        background-color: #222f4f;
+        color: white;
+        border: none;
+        text-decoration: none;
+       
+        border-radius: 15px;
+        height: 45px;
+        width: 80px;
+        padding-top: 0px;
+        margin-right: 20px;
+    
+    }
+    
+    #btnmodif:hover {
+        background-color: #222f4f;
+        color: white;
+        border: none;
+        text-decoration: none;
+          border-radius: 15px;
+        padding-top: 0px;
+    }
+    
+    #btnannule{
+        background-color: #af3c3c;
+        color: white;
+        border: none;
+        text-decoration: none;
+        border-radius: 15px;
+        height: 45px;
+        width: 70px;
+        margin-right: 10px;
+    }

@@ -1,0 +1,110 @@
+<div class="auth-wrapper">
+  <div class="auth-content">
+    <div class="card">
+      <div class="row align-items-center text-center">
+        
+        <div class="col-md-12">
+         
+          <div class="card-body">
+            
+              <div id="fh5co-logo" class="pb-5"><a >
+                <img src="../../../assets/let's start-blanc.png" alt=""   width="30%" class="logo logo-lg">
+
+              </a></div>
+        
+            <div *ngIf="alert==false" class="alert alert-danger alert-dismissible fade show" role="alert">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+                class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                <path
+                  d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+              </svg>&nbsp;&nbsp;{{msg}}
+            </div>
+
+
+            <h4 class="mb-3 f-w-400" style="font-weight: bold;">Connexion</h4>
+            <form class="login-form" [formGroup]="authentificationForm" (ngSubmit)="loginEtudiant()">
+              <div class="input-group mb-3">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" class="form-control" placeholder="Adresse email " formControlName="email">
+              </div>
+              <div class="input-group mb-4">
+                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                <input type="password" class="form-control" placeholder="Mot de passe" formControlName="mot_passe">
+              </div>
+
+              <button class="btn btn-primary btn-block mb-4">Se connecter</button>
+              <p class="mb-2">Vous n'avez pas de compte ? <a routerLink="/registre" class="f-w-400">Créer un compte</a>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <section class="login-block">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 login-sec ">
+        <h2 class="text-center">Connexion</h2>
+        <form class="login-form" [formGroup]="authentificationForm" (ngSubmit)="loginEtudiant()">
+
+          <div *ngIf="alert==false" class="alert alert-danger alert-dismissible fade show" role="alert">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor"
+              class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+              <path
+                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z" />
+            </svg>&nbsp;&nbsp;{{msg}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1" class=""><br>Adresse e-mail</label>
+            <input type="text" class="form-control" placeholder="Entrer votre adresse email" formControlName="email">
+
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1" class="">Mot de passe </label>
+            <input type="password" class="form-control" placeholder="Entrer votre mot de passe"
+              formControlName="mot_passe">
+          </div>
+
+
+
+          <div class="col-12">
+            <button type="submit" class="btn btn-login float-right">Se connecter</button>
+          </div>
+
+
+          <a routerLink="/reset" class="ml-auto">Mot de passe oublié ?</a>
+          <br><br>
+          <div class="col-10  ">
+            <p>Vous n'avez pas de compte ?<a routerLink="/registre"> Créer un compte</a></p>
+          </div>
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</section> -->

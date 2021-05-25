@@ -1,0 +1,69 @@
+<form [formGroup]="QCMForm" (ngSubmit)="addTest()" >
+
+  <div>
+    <div>
+      <div class=" form-group mb-0 mt-2">
+        <label class="control-label text-right">Question </label>
+        <input type="text" class="form-control" placeholder="Question" formControlName="question" />
+      </div>
+      <div *ngIf="question.touched && question.invalid">
+        <small *ngIf="question.errors.required" class="text-danger"> Le question est obligatoire<br></small>
+      </div>
+    </div>
+
+    <div>
+      <div class=" form-group mb-0 mt-2">
+        <label class="control-label">Réponse 1 </label>
+        <input type="text" class="form-control" placeholder="reponse1" formControlName="reponse1" />
+      </div>
+      <div *ngIf="reponse.touched && reponse.invalid">
+        <small *ngIf="reponse.errors.required" class="text-danger"> La premier réponse est obligatoire<br></small>
+      </div>
+    </div>
+    <div>
+      <div class=" form-group mb-0 mt-2">
+        <label class="control-label">Réponse 2 </label>
+        <input type="text" class="form-control" placeholder="reponse2" formControlName="reponse2" />
+      </div>
+      <div *ngIf="reponse2.touched && reponse2.invalid">
+        <small *ngIf="reponse2.errors.required" class="text-danger"> La deuxieme réponse est obligatoire<br></small>
+      </div>
+    </div>
+    <div>
+      <div class=" form-group mb-0 mt-2">
+        <label class="control-label">Réponse 3 </label>
+        <input type="text" class="form-control" placeholder="reponse3" formControlName="reponse3" />
+      </div>
+      <div *ngIf="reponse3.touched && reponse3.invalid">
+        <small *ngIf="reponse3.errors.required" class="text-danger"> La troisieme réponse est obligatoire<br></small>
+      </div>
+    </div>
+    <div>
+      <div class=" form-group mb-0 mt-2">
+        <label class="control-label">Réponse 4 </label>
+        <input type="text" class="form-control" placeholder="reponse4" formControlName="reponse4" />
+      </div>
+      <div *ngIf="reponse4.touched && reponse4.invalid">
+        <small *ngIf="reponse4.errors.required" class="text-danger"> La 4éme réponse est obligatoire<br></small>
+      </div>
+    </div>
+    <div>
+      <div class=" form-group mb-0 mt-2">
+        <label class="control-label">Réponse correct </label>
+        <input type="text" class="form-control" placeholder="reponse correct" formControlName="correct" />
+      </div>
+      <div *ngIf="correct.touched && correct.invalid">
+        <small *ngIf="correct.errors.required" class="text-danger"> La  réponse correcte est obligatoire<br></small>
+      </div>
+    </div>
+  </div>
+
+</form>
+
+<div class='row '>
+  <div class="col-md-5 pt-3">
+    <button  mat-button [mat-dialog-close]="true" [disabled]="QCMForm.invalid" class="btn btn-lg  " style="color: white; background-color:#003366;" type="submit" (click)="addTest()">Ajouter le question</button>
+    <button mat-button mat-dialog-close class="btn btn-lg btn-danger ml-2 "  >Annuler</button>
+  </div>
+
+</div>

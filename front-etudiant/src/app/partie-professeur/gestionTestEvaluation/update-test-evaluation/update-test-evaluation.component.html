@@ -1,0 +1,87 @@
+<form [formGroup]="updateTest" (ngSubmit)="updateTestEvaluation()">
+
+
+
+    <div>
+        <div>
+            <div class="form-group mb-0 mt-2">
+                <label class="control-label">Question </label>
+                <input type="text" class="form-control" placeholder="Question" formControlName="question" />
+            </div>
+            <div *ngIf="question.touched && question.invalid">
+                <small *ngIf="question.errors.required" class="text-danger"> Le question est obligatoire<br></small>
+              </div>
+        </div> 
+
+        <div class="form-group mb-0 mt-2">
+            <label class="control-label">Réponse 1 </label>
+            <input type="text" class="form-control" placeholder="reponse1" formControlName="reponse1" />
+        </div>
+        <div *ngIf="reponse1.touched && reponse1.invalid">
+            <small *ngIf="reponse1.errors.required" class="text-danger"> La premier réponse est
+                obligatoire<br></small>
+        </div>
+
+        <div class="form-group mb-0 mt-2">
+            <label class="control-label">Réponse 2</label>
+            <input type="text" class="form-control" placeholder="reponse2" formControlName="reponse2" />
+        </div>
+        <div *ngIf="reponse2.touched && reponse2.invalid">
+            <small *ngIf="reponse2.errors.required" class="text-danger"> La deuxieme réponse est
+                obligatoire<br></small>
+        </div>
+
+        <div class="form-group mb-0 mt-2">
+            <label class="control-label">Réponse 3 </label>
+            <input type="text" class="form-control" placeholder="reponse3" formControlName="reponse3" />
+        </div>
+        <div *ngIf="reponse3.touched && reponse3.invalid">
+            <small *ngIf="reponse3.errors.required" class="text-danger"> La 3éme réponse est
+                obligatoire<br></small>
+        </div>
+        <div>
+            <div class="form-group mb-0 mt-2">
+                <label class="control-label">Réponse 4 </label>
+                <input type="text" class="form-control" placeholder="reponse4" formControlName="reponse4" />
+            </div>
+            <div *ngIf="reponse4.touched && reponse4.invalid">
+                <small *ngIf="reponse4.errors.required" class="text-danger"> La 4éme réponse est obligatoire<br></small>
+              </div>
+
+        </div>
+        <div>
+            <div class="form-group mb-0 mt-2">
+                <label class="control-label">Réponse correcte 1 </label>
+                <input type="text" class="form-control" placeholder="reponse correct " formControlName="correct" />
+            </div>
+            <div *ngIf="correct.touched && correct.invalid">
+                <small *ngIf="correct.errors.required" class="text-danger"> La réponse correcte est
+                    obligatoire<br></small>
+            </div>
+
+        </div>
+        <div>
+            <div class="form-group mb-0 mt-2">
+                <label class="control-label">Bareme </label>
+                <input type="number" class="form-control" placeholder="Bareme" formControlName="bareme" />
+            </div>
+            <div *ngIf="bareme.touched && bareme.invalid">
+                <small *ngIf="bareme.errors.required" class="text-danger"> La bareme est
+                    obligatoire<br></small>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <mat-dialog-actions align="end">
+
+        <button [disabled]="updateTest.invalid" mat-button [mat-dialog-close]="true" class="btn btn-lg btn-success "
+            type="submit" (click)="updateTestEvaluation()" [disabled]="updateTest.invalid">Modifier</button>
+
+        <button mat-button mat-dialog-close class="btn btn-lg btn-danger ml-2 ">Annuler</button>
+    </mat-dialog-actions>
+
+
+</form>

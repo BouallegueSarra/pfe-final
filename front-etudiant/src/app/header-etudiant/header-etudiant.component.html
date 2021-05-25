@@ -1,0 +1,204 @@
+<div class="loader-bg">
+        <div class="loader-track">
+                <div class="loader-fill"></div>
+        </div>
+</div>
+<!-- [ Pre-loader ] End -->
+<!-- [ Mobile header ] start -->
+<div class="pc-mob-header pc-header">
+
+        <div class="pcm-toolbar">
+                <a href="#!" class="pc-head-link" id="mobile-collapse">
+                        <div class="hamburger hamburger--arrowturn">
+                                <div class="hamburger-box">
+                                        <div class="hamburger-inner"></div>
+                                </div>
+                        </div>
+                        <!-- <i data-feather="menu"></i> -->
+                </a>
+
+                <a href="#!" class="pc-head-link" id="headerdrp-collapse">
+                        <i data-feather="align-right"></i>
+                </a>
+                <a href="#!" class="pc-head-link" id="header-collapse">
+                        <i data-feather="more-vertical"></i>
+                </a>
+        </div>
+</div>
+
+<nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+
+                <div class="m-header">
+                        <a href="index-2.html" class="b-brand">
+                                <img src="../../../assets/logo_final.png" alt="" width="50%" class="logo logo-lg">
+                        </a>
+                </div>
+                <div class="navbar-content">
+                        <ul class="pc-navbar">
+ 
+                                <a class="pc-head-link dropdown-toggle arrow-none me-0 " data-bs-toggle="dropdown"
+                                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                        <img src="../../../assets/imageProfil/{{inforUsers.photo}}"
+                                                class="user-avtar user-prof img-radius img-fluid wid-120 "
+                                                style="width: 45%; ">
+                                        <div class="text-center pt-3">
+                                                <h1>
+                                                        <span class="user-name user-name2 ">{{inforUsers.nom}}
+                                                                {{inforUsers.prenom}}</span>
+                                                </h1>
+                                        </div>
+                                </a>
+
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/profil']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">account_circle</i></span><span
+                                                        class="pc-mtext">Mon profil</span></a>
+                                </li>
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/quizNiveau']" class="pc-link"><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">layers</i></span><span
+                                                        class="pc-mtext">Test de niveau </span></a>
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/consultCours']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">picture_as_pdf</i></span><span
+                                                        class="pc-mtext">Cours</span></a>
+
+                                </li>
+
+
+                                
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/readAllCertif']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">emoji_events</i></span><span
+                                                        class="pc-mtext">Certificats </span></a>
+
+                                </li>
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/listCollegue']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">mail</i></span><span
+                                                        class="pc-mtext">Contact</span></a>
+
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/listContactEtudiant']" class="pc-link ">
+                                                
+                                                
+                                               <span
+                                                        class="pc-micon"><i
+                                                                class="material-icons-two-tone">speaker_notes</i></span><span
+                                                        class="pc-mtext">Les messages</span></a>
+
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/addReclamation']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">notification_important</i></span><span
+                                                        class="pc-mtext">Réclamations</span></a>
+
+                                </li>
+
+                        </ul>
+                </div>
+        </div>
+</nav>
+
+<header class="pc-header ">
+        <div class="header-wrapper">
+
+                <div class="ms-auto">
+                        <ul class="list-unstyled">
+                                <li class="dropdown pc-h-item">
+                                        <a [routerLink]="['/profil']"
+                                                class="pc-head-link dropdown-toggle arrow-none me-0">
+                                                <img src="../../../assets/imageProfil/avatar.png" alt="user-image"
+                                                        class="user-avtar">
+
+                                                <span>
+                                                        <span class="user-name">{{inforUsers.nom}} {{inforUsers.prenom}}
+                                                        </span>
+                                                </span>
+                                        </a>
+
+                                </li>
+
+                                <li class="dropdown pc-h-item">
+
+                                        <h5 class="text-right" (click)="logout()"> <span class="material-icons"
+                                                        style="font-size:34px;margin-top: 10px;margin-right: 15px; color: #222f4f ;">
+                                                        logout
+                                                </span></h5>
+
+                                </li>
+                        </ul>
+                </div>
+
+        </div>
+</header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <header>
+
+
+
+
+
+    <div class="menuAdmin">
+
+
+        <br><br><br><br><br>
+
+
+
+        <a [routerLink]="['/profil']"><span class="material-icons">perm_identity </span>Mon profil <span
+                class="material-icons">arrow_right </span></a><br>
+        <a [routerLink]="['/quizNiveau']"><span class="material-icons">supervisor_account</span> Test de niveau<span
+                class="material-icons">arrow_right</span> </a><br>
+        <a [routerLink]="['/consultCours']"><span class="material-icons">groups</span>Cours<span class="material-icons">arrow_right</span> </a><br>
+    <a [routerLink]="['/quizEvaluation']"><span class="material-icons">groups</span>Test d'évaluation<span class="material-icons">arrow_right</span> </a><br> 
+        <a [routerLink]="['/readAllCertif']" ><span class="material-icons">campaign</span>Certificat<span class="material-icons">arrow_right</span></a>
+
+        <a [routerLink]="['/listCollegue']"  ><span class="material-icons">campaign</span>Liste des collegues<span
+                class="material-icons">arrow_right</span></a>
+        <a [routerLink]="['/listContactEtudiant']"><span class="material-icons">campaign</span>Contact<span class="material-icons">arrow_right</span></a>
+
+        
+
+    </div>
+    <div class="iconlogout">
+        <h5 class="text-right" (click)="logout()"> <span class="material-icons"
+                style="font-size:34px;margin-right: 60px ;margin-top: 10px; color: #222f4f ;">
+                logout
+            </span></h5>
+    </div>
+
+
+</header> -->

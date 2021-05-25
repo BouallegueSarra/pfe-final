@@ -1,0 +1,54 @@
+<div style="width:600px ">
+    <h3 class="pb-0 mb-0"> {{user.nom}} {{user.prenom}}</h3>
+    <p style="font-size:14px; color:grey"> <i class="fas fa-clock"></i> {{infoContact.date | date:'M/d/yyyy, HH:mm'}}
+    </p>
+    <hr>
+
+    <h4 class="m-t-20"><span class="text-primary">Sujet :</span> {{infoContact.sujet}} </h4>
+    <h4 class="m-t-20"><span class="text-primary">Message :</span> {{infoContact.message}}</h4>
+</div>
+
+
+<div class="card">
+
+    <div *ngIf="infoReponse.length!=0">
+        <div class="card-header pt-2 pb-2">
+
+            <h3 class="pb-0 mb-0"> Les réponses </h3>
+        </div>
+
+        <div class="card-body">
+
+
+            <table class="table">
+                <tbody mdbTableCol *ngFor="let reponse of infoReponse">
+                    <tr class="unread">
+
+                        <td>{{reponse.message}}</td>
+                        <td>{{reponse.date| date:'M/d/yy, HH:mm'}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<input type="button" id="test" class="img-plus-moins btn btn-MD  btn-info" value="Répondre"
+    onclick="javascript:document.getElementById('Reponse'); document.getElementById('Reponse').style.display = 'block'; document.getElementById('test').style.display = 'none';" />
+
+<form id="Reponse" class="" style="display:none" [formGroup]="reponses" (ngSubmit)="Repondre()">
+    <h3>Votre réponse </h3>
+    <div>
+        <textarea id="story" name="story" rows="5" cols="50" formControlName="reponse"> </textarea>
+
+    </div>
+    <button mat-button [mat-dialog-close]="true" (click)="Repondre()" class="btn btn-sm  btn-info">Envoyer </button>
+</form>

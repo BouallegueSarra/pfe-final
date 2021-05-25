@@ -1,0 +1,66 @@
+<app-header></app-header>
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Liste des Réclamation</h5>
+                    </div>
+                    <div class="card-body">
+
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                <div class="col-md-10 offset-1">
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-de">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th scope="col">Email </th>
+                                                            <th scope="col">Sujet </th>
+                                                            <th scope="col">Détails </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody mdbTableCol *ngFor="let Reclamation of listReclamation">
+                                                        <tr>
+
+
+                                                            <td>{{Reclamation.email}} </td>
+                                                            <td>{{Reclamation.sujet}} </td>
+                                                            <div class="card-body">
+
+                                                                <button (click)="openDialog(Reclamation._id)"
+                                                                    type="button" class="btn btn-info btn-sm"><i
+                                                                        class="fas fa-edit pr-2"></i>Détails</button>
+
+
+                                                            </div>
+
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

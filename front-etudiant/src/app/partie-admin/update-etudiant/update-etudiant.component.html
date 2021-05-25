@@ -1,0 +1,110 @@
+<form [formGroup]="modifierEtudiantForm" (ngSubmit)="updateEtudiant()">
+
+
+    <div class="row">
+        <div class="col-12 col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Nom</label>
+                <input type="text" class="form-control" placeholder="First Name" formControlName="nom" />
+            </div>
+            <div *ngIf="nom.touched && nom.invalid">
+                <small *ngIf="nom.errors.required" class="text-danger"> Nom est
+                    obligatoire<br></small>
+                <small *ngIf="nom.errors.pattern || nom.errors.minlength" class="text-danger">
+                    Nom est
+                    incorrect<br></small>
+            </div>
+        </div>
+        <div class="col-14 col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Prénom</label>
+                <input type="text" class="form-control" placeholder="Last Name" formControlName="prenom" />
+            </div>
+            <div *ngIf="prenom.touched && prenom.invalid">
+                <small *ngIf="prenom.errors.required" class="text-danger"> Prénom est
+                    obligatoire<br></small>
+                <small *ngIf="prenom.errors.minlength" class="text-danger"> Prénom est
+                    incorrect<br></small>
+            </div>
+        </div>
+        <div class="col-12 ">
+            <div class="form-group">
+                <label class="control-label">Adresse e-mail </label>
+                <input type="email" class="form-control" placeholder="Email" disabled formControlName="email" />
+            </div>
+
+        </div>
+        <div class="col-14 col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Mot de passe </label>
+                <input type="password" class="form-control" placeholder="Username" formControlName="mot_passe" />
+            </div>
+            <div *ngIf="mot_passe.touched && mot_passe.invalid">
+                <small *ngIf="mot_passe.errors.required" class="text-danger"> Le mot de passe
+                    est
+                    obligatoire<br></small>
+                <small *ngIf="mot_passe.errors.minlength" class="text-danger"> Le mot de passe
+                    est
+                    incorrect <br></small>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6">
+            <div class="form-group">
+                <label class="control-label">Télèphone</label>
+                <input type="text" class="form-control" placeholder="Télèphone" formControlName="telephone" />
+            </div>
+            <div *ngIf="telephone.touched && telephone.invalid">
+                <small *ngIf="telephone.errors.required" class="text-danger"> Le téléphone est
+                    obligatoire<br></small>
+                <small *ngIf="telephone.errors.minlength || telephone.errors.maxlength || telephone.errors.pattern"
+                    class="text-danger"> Le téléphone est incorrect <br></small>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-group mb-0 mt-2">
+                <label class="control-label">Genre</label>
+            </div>
+            <div class="col-12">
+
+                <input class="form-check-input" type="radio" name="genre" id="homme" value="homme" checked
+                    formControlName="genre">
+                <label class="form-check-label mr-5" for="homme">
+                    Homme</label>
+
+
+
+                <input class="form-check-input" type="radio" name="genre" id="femme" value="femme"
+                    formControlName="genre">
+                <label class="form-check-label" for="femme">
+                    Femme</label>
+
+                <div *ngIf="genre.touched && genre.invalid">
+                    <small *ngIf="genre.errors.required" class="text-danger"> Genre est obligatoire
+                        <br></small>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-14 ">
+
+            <div class="card-body datepicker-form">
+                <div class="form-group mb-0 mt-2">
+                    <label class="control-label">Date de naissance</label>
+
+                    <input class="form-control" type='date' placeholder="00/00/0000" formControlName="date_naissance"
+                        id="date_naissance" name="date_naissance" />
+                </div>
+                <div *ngIf="date_naissance.touched && mot_passe.invalid">
+                    <small *ngIf="date_naissance.errors.required" class="text-danger"> La date de naissance est
+                        obligatoire<br></small>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <button type="submit" mat-button [mat-dialog-close]="true" class="btn btn-primary my-3"
+        [disabled]="modifierEtudiantForm.invalid">Modifier</button>
+
+    <button type="button" class="btn btn-primary my-3" [routerLink]="['/readAllEtudiant']">retour</button>
+
+</form>

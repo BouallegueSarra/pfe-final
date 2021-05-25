@@ -1,0 +1,15 @@
+
+
+<div class="question ml-sm-5 pl-sm-5 pt-2"><p> Question {{questionIndex+1}}/ {{listeTest.length}}</p> 
+  <div class="py-2 h5"><b>Q. {{currentQuestion}}</b></div>
+  <div class="ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3" id="options">
+  
+
+    <p *ngFor="let option of currentOptions">
+     <label class="options"><input (click)="setUserAnswer(option)"   type="radio" value={{option}} name="answer"  > {{option}}  <span class="checkmark"></span> </label> 
+     
+  
+    </p>
+    
+
+

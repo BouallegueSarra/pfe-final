@@ -1,0 +1,111 @@
+<div class="loader-bg">
+        <div class="loader-track">
+                <div class="loader-fill"></div>
+        </div>
+</div>
+
+<nav class="pc-sidebar ">
+        <div class="navbar-wrapper">
+
+                <div class="m-header">
+                        <a href="index-2.html" class="b-brand">
+                                <img src="../../../assets/logo_final.png" alt="" width="50%" class="logo logo-lg">
+                        </a>
+                </div>
+
+
+                <div class="navbar-content">
+                        <ul class="pc-navbar">
+                                <a class="pc-head-link dropdown-toggle arrow-none me-0 " data-bs-toggle="dropdown"
+                                        href="#" role="button" aria-haspopup="false" aria-expanded="false">
+
+                                        <div class="text-center pt-3">
+                                                <h1>
+                                                        <span class="user-name user-name2 ">{{inforUsers.nom}}
+                                                                {{inforUsers.prenom}}</span>
+                                                </h1>
+                                        </div>
+                                </a>
+
+
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/profil']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">account_circle</i></span><span
+                                                        class="pc-mtext">Mon profil</span><span class="pc-arrow"><i
+                                                                data-feather="chevron_right"></i></span></a>
+                                </li>
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/readAllProfesseur']" class="pc-link"><span
+                                                        class="pc-micon"><i
+                                                                class="material-icons-two-tone">supervisor_account</i></span><span
+                                                        class="pc-mtext">Gestion de professeurs</span><span
+                                                        class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+                                </li>
+
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/readAllEtudiant']" class="pc-link "><span
+                                                        class="pc-micon"><i
+                                                                class="material-icons-two-tone">people_outline</i></span><span
+                                                        class="pc-mtext">Gestion des étudiants</span><span
+                                                        class="pc-arrow"><i data-feather="chevron-right"></i></span></a>
+
+                                </li>
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/detailTest']" class="pc-link "><span class="pc-micon"><i
+                                                                class="material-icons-two-tone">ballot</i></span><span
+                                                        class="pc-mtext">Test de niveau </span><span class="pc-arrow"><i
+                                                                data-feather="chevron-right"></i></span></a>
+
+
+                                </li>
+
+                                <li class="pc-item pc-hasmenu">
+                                        <a [routerLink]="['/readAllReclamation']" class="pc-link "><span
+                                                        class="pc-micon"><i
+                                                                class="material-icons-two-tone">notification_important</i></span><span
+                                                        class="pc-mtext">Réclamations</span><span class="pc-arrow"><i
+                                                                data-feather="chevron-right"></i></span></a>
+
+                                </li>
+                        </ul>
+                </div>
+        </div>
+</nav>
+
+<header class="pc-header ">
+        <div class="header-wrapper">
+
+                <div class="ms-auto">
+                        <ul class="list-unstyled">
+
+
+                                <li class="dropdown pc-h-item">
+
+
+                                        <a [routerLink]="['/profil']"
+                                                class="pc-head-link dropdown-toggle arrow-none me-0">
+                                                <img src="../../../assets/imageProfil/avatar.png" alt="user-image"
+                                                        class="user-avtar">
+
+                                                <span>
+                                                        <span class="user-name">{{inforUsers.nom}} </span>
+                                                        <span class="user-desc">Administrator</span>
+                                                </span>
+                                        </a>
+                                </li>
+                                <li class="dropdown pc-h-item">
+
+                                        <h5 class="text-right" (click)="logout()"> <span class="material-icons"
+                                                        style="font-size:34px;margin-top: 10px; color: #222f4f ;">
+                                                        logout
+                                                </span></h5>
+
+                                </li>
+                        </ul>
+                </div>
+
+        </div>
+</header>

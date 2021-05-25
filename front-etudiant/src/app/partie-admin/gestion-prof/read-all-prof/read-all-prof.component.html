@@ -1,0 +1,177 @@
+<app-header></app-header>
+
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="row">
+            <!-- subscribe start -->
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Liste des professeurs </h5>
+                    </div>
+                    <div class="card-body">
+                           
+
+                            <div *ngIf="alert==true" class="alert alert-success alert-dismissible fade show"
+                                role="alert">
+                                <i class="fas fa-check pr-2"></i>{{msg}}
+                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                            </div>
+
+
+                            <div class='add text-right'>
+                                <button mat-button (click)="openDialogAjout()"
+                                    class="btn  btn-sm mb-3 btn-round" style="color: white; background-color:#003366;"><i
+                                        class="feather icon-plus"></i>Ajouter un professeur</button>
+
+                            </div>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">Liste des professeurs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                    aria-controls="profile" aria-selected="false">Liste des professeurs bloquées</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                <div class="col-md-12">
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-de">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col"> </th>
+                                                            <th scope="col">Nom </th>
+                                                          
+                                                            <th scope="col">Adresse email </th>
+                                                            <th scope="col">Niveau </th>
+                                                            <th scope="col">Téléphone </th>
+
+                                                            <th scope="col">Date d'embauche </th>
+                                                            <th scope="col">Genre </th>
+                                                            <th scope="col">Action </th>
+                                                          
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody mdbTableCol *ngFor="let prof of listProfesseur">
+                                                        <tr *ngIf="prof.etat==true">
+
+                                                            <th scope="row"> <img class="img-radius img-fluid wid-70"
+                                                                    src="./assets/imageProfil/{{prof.photo}}"
+                                                                    alt="User image">
+                                                            </th>
+                                                            <th scope="row"> {{prof.prenom}} {{prof.nom}}
+                                                        </th>
+
+                                                          
+                                                            <td>{{prof.email}} </td>
+                                                            <td>{{prof.niveau}} </td>
+                                                            <td>{{prof.telephone}} </td>
+                                                            <td>{{prof.date_embauche| date:'dd-MM-yyyy'}} </td>
+                                                            <td>{{prof.genre}} </td>
+                                                            <td>
+                                                                <!-- <button mat-button
+                                                                    
+                                                                    class="modif-btn"><i
+                                                                        class="fas fa-edit"></i>Modifier</button> -->
+
+
+                                                                <div class="card-body">
+                                                                    <!-- [routerLink]="['/updateProf', prof._id]" -->
+                                                                    <button 
+                                                                    (click)="openDialogModif(prof._id)"
+                                                                    
+                                                                        type="button" class="btn btn-success btn-sm"><i
+                                                                            class="fas fa-edit pr-2"></i>Modifier</button>
+                                                                    <button type="button" class="btn btn-sm btn-danger ml-2"
+                                                                        mwlConfirmationPopover
+                                                                        [popoverTitle]="popoverTitle1"
+                                                                        [popoverMessage]="popoverMessage1"
+                                                                        placement="left" (confirm)="bloquer(prof._id)"
+                                                                        (cancel)="cancelClicked = true"><i
+                                                                        class="fas fa-minus-circle pr-2"></i>Bloquer</button>
+
+
+                                                                </div>
+
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                                <div class="col-md-12">
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-de">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col"> </th>
+
+                                                            <th scope="col">Nom </th>
+                                                            <th scope="col">Adresse email </th>
+                                                            <th scope="col">Niveau </th>
+                                                            <th scope="col">Téléphone </th>
+
+                                                            <th scope="col">Date d'embauche </th>
+                                                            <th scope="col">Genre </th>
+                                                            <th scope="col">Action </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody mdbTableCol *ngFor="let prof of listProfesseur">
+                                                        <tr *ngIf="prof.etat==false">
+
+                                                            <th scope="row"> <img class="img-radius img-fluid wid-70"
+                                                                src="./assets/imageProfil/{{prof.photo}}"
+                                                                alt="User image">
+                                                        </th>
+
+                                                            <td>{{prof.prenom}} {{prof.nom}}</td>
+                                                            <td>{{prof.email}} </td>
+                                                            <td>{{prof.niveau}} </td>
+                                                            <td>{{prof.telephone}} </td>
+                                                            <td>{{prof.date_embauche| date:'dd-MM-yyyy'}} </td>
+                                                            <td>{{prof.genre}} </td>
+                                                            <td>
+                                                               
+                                                                <button mwlConfirmationPopover class="btn btn-secondary btn-sm"
+                                                                    [popoverTitle]="popoverTitle2" 
+                                                                    [popoverMessage]="popoverMessage2" placement="left"
+                                                                    (confirm)="debloquer(prof._id)"
+                                                                    (cancel)="cancelClicked = true"><i
+                                                                        class="fas fa-minus-circle pr-2"></i> Débloquer
+                                                                </button>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>

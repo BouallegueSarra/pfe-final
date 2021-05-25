@@ -1,0 +1,58 @@
+<app-header-etudiant></app-header-etudiant>
+
+<div class="pc-container">
+
+
+    <div class="pcoded-content">
+
+        <div *ngIf="listCertif.length==0">
+            <div class="row justify-content-md-center">
+                <div class="col-md-10 col-lg-7 ">
+                    <div class="card">
+                        <div class="card-body text-center">
+
+                            <i class="material-icons-two-tone mb-2 text-primary f-38">description</i>
+                            <h1 class="m-t-20 pas-cer"><span class="text-danger">Pas de certificat</span> </h1>
+                            <p class="m-b-20">Veuillez-vous consulter le cours et passer un test d'évaluation pour
+                                obtenir une certificat</p>
+                            <button class="btn btn-primary btn-md btn-round">Consulter le cours</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 ">
+            <div *ngFor="let certif of listCertif" class="col-md-4 col-sm-6 col-12">
+                <div class="card">
+                    <div class="card-body text-center">
+
+                        <p class="m-b-25 bg-light-info text-info lbl-card" *ngIf="certif.niveau=='A1'">BEGINNER A1</p>
+                        <p class="m-b-25 bg-light-info text-info lbl-card" *ngIf="certif.niveau=='A2'">LOWER
+                            INTERMEDIATE A2</p>
+                        <p class="m-b-25 bg-light-info text-info lbl-card" *ngIf="certif.niveau=='B1'">INTERMEDIATE B1
+                        </p>
+                        <p class="m-b-25 bg-light-info text-info lbl-card " *ngIf="certif.niveau=='B2'">UPPER
+                            INTERMEDIATE B2</p>
+                        <p class="m-b-25 bg-light-info text-info lbl-card" *ngIf="certif.niveau=='C1'">ADVANCED C1</p>
+                        <p class="m-b-25 bg-light-info text-info lbl-card" *ngIf="certif.niveau=='C2'">BUSINESS C1</p>
+
+
+                        <div class="text-center">
+                            <p class="m-b-0 d-inline-block" style="font-weight: bold; font-size: 20px;">
+                                {{certif.niveau}}</p>
+                            <div class="m-b-0 m-t-10">
+                                <button class="btn btn-sm  btn-info" mat-button (click)="openDialog(certif.niveau)"><i
+                                        class="fas fa-info-circle pr-2"></i>Afficher</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>

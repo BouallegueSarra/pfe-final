@@ -1,0 +1,39 @@
+<div style="width:600px ">
+    <h3 class="pb-0 mb-0">{{user.nom}} {{user.prenom}} </h3>
+    <p style="font-size:13px; color:grey"> <i class="fas fa-clock"></i> {{infoContact.date | date:'M/d/yy, HH:mm'}} </p>
+    <hr>
+    <h4 class="m-t-20"><span class="text-primary">à :</span> {{infoContact.email}} </h4>
+
+    <h4 class="m-t-20"><span class="text-primary">Sujet :</span> {{infoContact.sujet}} </h4>
+    <h4 class="m-t-20"><span class="text-primary">Message :</span> {{infoContact.message}}</h4>
+</div>
+
+
+
+
+<div class="card">
+
+    <div *ngIf="infoReponse.length!=0">
+        <div class="card-header pt-2 pb-2">
+
+            <h3 class="pb-0 mb-0"> Les réponses </h3>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table">
+                <tbody mdbTableCol *ngFor="let reponse of infoReponse">
+                    <tr class="unread">
+
+                        <td>{{reponse.message}}</td>
+                        <td>{{reponse.date| date:'M/d/yy, HH:mm'}}</td>
+
+
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,172 @@
+<app-header></app-header>
+
+
+
+<div class="pc-container">
+    <div class="pcoded-content">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Liste des étudiants</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row align-items-center m-l-0">
+                            <div class="col-sm-6">
+                            </div>
+
+                            <div *ngIf="alert==true" class="alert alert-success alert-dismissible fade show"
+                                role="alert">
+                                <i class="fas fa-check pr-2"></i>{{msg}}
+                                <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true"></span>
+                                </button>
+                            </div>
+
+                        </div>
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                                    aria-controls="home" aria-selected="true">Liste des étudiants</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab"
+                                    aria-controls="profile" aria-selected="false">Liste des étudiants bloquées</a>
+                            </li>
+
+                        </ul>
+                        <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+
+                                <div class="col-md-12">
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-de">
+                                                    <thead>
+                                                        <tr>
+                                                            <th scope="col"> </th>
+
+                                                            <th scope="col">Nom </th>
+                                                            <th scope="col">email </th>
+                                                            <th scope="col">Niveau </th>
+                                                            <th scope="col">Téléphone </th>
+
+                                                            <th scope="col">Date de naissance </th>
+                                                            <th scope="col">Genre </th>
+                                                            <th scope="col">Action </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody mdbTableCol *ngFor="let etudiant of listEtudiant">
+                                                        <tr *ngIf="etudiant.etat==true">
+
+                                                            <th scope="row"> <img class="img-radius img-fluid wid-70"
+                                                                    src="./assets/imageProfil/{{etudiant.photo}}">
+                                                            </th>
+
+                                                            <td>{{etudiant.prenom}} {{etudiant.nom}}</td>
+                                                            <td>{{etudiant.email}} </td>
+                                                            <td>{{etudiant.niveau}} </td>
+                                                            <td>{{etudiant.telephone}} </td>
+                                                            <td>{{etudiant.date_naissance}}</td>
+                                                            <td>{{etudiant.genre}} </td>
+                                                            <td>
+                                                                <div class="card-body">
+
+                                                                    <button (click)="openDialogModif(etudiant._id)"
+                                                                        type="button" class="btn btn-success btn-sm"><i
+                                                                            class="fas fa-edit pr-2"></i>Modifier</button>
+                                                                    <button type="button"
+                                                                        class="btn btn-sm btn-danger ml-2"
+                                                                        mwlConfirmationPopover
+                                                                        [popoverTitle]="popoverTitle1"
+                                                                        [popoverMessage]="popoverMessage1"
+                                                                        placement="left"
+                                                                        (confirm)="bloquer(etudiant._id)"
+                                                                        (cancel)="cancelClicked = true"><i
+                                                                            class="fas fa-minus-circle pr-2"></i>Bloquer</button>
+
+
+                                                                </div>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+
+
+
+
+                                <div class="col-md-12">
+                                    <div class="card">
+
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table table-de">
+                                                    <thead>
+                                                        <tr>
+
+                                                            <th scope="col">Nom </th>
+                                                            <th scope="col">prenom </th>
+                                                            <th scope="col">email </th>
+                                                            <th scope="col">Niveau </th>
+                                                            <th scope="col">Téléphone </th>
+
+                                                            <th scope="col">Date de naissance </th>
+                                                            <th scope="col">Genre </th>
+                                                            <th scope="col">Action </th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody mdbTableCol *ngFor="let etudiant of listEtudiant">
+                                                        <tr *ngIf="etudiant.etat==false">
+
+                                                            <th scope="row"> <img class="img-radius img-fluid wid-70"
+                                                                    src="./assets/imageProfil/{{etudiant.photo}}"
+                                                                    alt="User image">{{etudiant.nom}}
+                                                            </th>
+
+                                                            <td>{{etudiant.prenom}}</td>
+                                                            <td>{{etudiant.email}} </td>
+                                                            <td>{{etudiant.niveau}} </td>
+                                                            <td>{{etudiant.telephone}} </td>
+                                                            <td>{{etudiant.date_naissance}}</td>
+                                                            <td>{{etudiant.genre}} </td>
+                                                            <td>
+
+                                                                <button mwlConfirmationPopover
+                                                                    class="btn btn-secondary btn-sm"
+                                                                    [popoverTitle]="popoverTitle2"
+                                                                    [popoverMessage]="popoverMessage2" placement="left"
+                                                                    (confirm)="debloquer(etudiant._id)"
+                                                                    (cancel)="cancelClicked = true"><i
+                                                                        class="fas fa-minus-circle pr-2"></i> Débloquer
+                                                                </button>
+
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

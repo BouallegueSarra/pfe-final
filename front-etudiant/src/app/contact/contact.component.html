@@ -1,0 +1,125 @@
+<!-- 
+        <form [formGroup]="contact" (ngSubmit)="contacter()" >
+            <table class="form-style">
+               <tr>
+                  <td>
+                     <label>
+                        Adresse email <span class="required">*</span>
+                     </label>
+                  </td>
+                  <td>
+                     <input type="text" name="name" class="long"   value="{{data.adresse}} "/>
+                     <span class="error" id="errorname"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label>
+                        Objet <span class="required">*</span>
+                     </label>
+                  </td>
+                  <td>
+                     <input type="email" name="email" class="long"  formControlName="objet" />
+                     <span class="error" id="erroremail"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td>
+                     <label>
+                        Message <span class="required">*</span>
+                     </label>
+                  </td>
+                  <td>
+                     <textarea name="message" class="long field-textarea"  formControlName="message" ></textarea>
+                     <span class="error" id="errormsg"></span>
+                  </td>
+               </tr>
+               <tr>
+                  <td></td>
+                  <td>
+                     <input type="submit" value="Envoyer">      
+                  </td>
+               </tr>
+            </table>
+         </form>
+
+
+
+
+ -->
+
+
+ 
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+ aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+ <div class="modal-dialog" role="document">
+   <div class="modal-content">
+     <div class="modal-header">
+       <h3 class="modal-title" id="exampleModalLongTitle">Envoyerrrrfzeezfefzer un message</h3>
+       <br>
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+         <span aria-hidden="true">&times;</span>
+       </button>
+     </div>
+     <div class="modal-body"> 
+
+       <form [formGroup]="contact" (ngSubmit)="contacter()">
+         <table class="form-style" style="width:100%">
+
+           <tr>
+             <td class="form-group mb-0 mt-2">
+               <label class="control-label">Sujet : </label>
+               <!-- <input type="text" name="sujet" class="long" formControlName="sujet" /> -->
+               <input type="text" class="form-control" placeholder="sujet" formControlName="sujet" />
+               <div *ngIf="sujet.touched && sujet.invalid">
+                 <small *ngIf="sujet.errors.required" class="text-danger"> Le sujet est
+                     obligatoire<br></small>
+             </div>
+             </td>
+           </tr>
+           <tr>
+             <td>
+
+               <div class="form-group mb-0 mt-2">
+                 <label class="control-label">Message : </label>
+                 <textarea id="story" name="story" class="form-control" rows="5" cols="33"
+                   formControlName="message" formControlName="message"></textarea>
+
+               </div>
+               <div *ngIf="message.touched && message.invalid">
+                 <small *ngIf="message.errors.required" class="text-danger"> Le message est
+                     obligatoire<br></small>
+             </div>
+
+
+               <!-- 
+                 <label>
+                   Message <span class="required">*</span>
+                 </label>
+               
+                 <textarea name="message" class="long field-textarea" formControlName="message"></textarea>
+                  -->
+             </td>
+           </tr>
+           <tr class="pt-2">
+             <td class="pt-3">
+               <!-- <input type="submit" value="Envoyer">
+                 <input  value="Réinitialiser"> -->
+
+               <!-- <button [disabled]="contact.invalid" class="btn btn-primary mr-3 " type="submit">Envoyer</button>
+               <button type="reset" class="btn btn-danger" data-dismiss="modal">Annuler</button> -->
+
+               <button class="btn btn-primary mr-3 ">Envoyer</button>
+             <button mat-button mat-dialog-close class="btn btn-danger" >Annuler</button>
+
+
+             </td>
+           </tr>
+         </table>
+       </form>
+
+      </div>
+
+   </div>
+ </div>
+ </div>  

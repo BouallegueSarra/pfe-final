@@ -1,0 +1,46 @@
+<app-header-etudiant></app-header-etudiant>
+
+
+<div class="pc-container">
+    <div class="pcoded-content">
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                   
+                    <div class="card-body">
+                        <div id="cke5-inline-demo">
+                            <header class="ck-content  chap1"  data-inline-inject="true">
+                                <h2  class="titre-princ" >{{cours.titreprincipal}}</h2>
+                            </header>
+                            <div *ngFor="let Paragraphe of listParagraphe">
+                                <div class="ck-content section-bloc ck-content1" data-inline-inject="true">
+                                    <h3 class="parag-titre">{{Paragraphe.titre}}</h3>
+                                    <hr>
+
+                                    <p>{{Paragraphe.description}}</p>
+                                    <div class="row">
+                                   <div class="col-6">
+                                        <img src="../../../../assets/cours/{{Paragraphe.image}}" alt="photo" width="400" height="300">
+
+                               
+                                    </div>
+
+                                    <div class="col-6">
+                                        <video id="video1" width="400" height="300" controls>
+                                            <source src="../../../../assets/cours/video/{{Paragraphe.video}}">
+                    
+                                        </video>
+                                    </div>
+                                </div>
+
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

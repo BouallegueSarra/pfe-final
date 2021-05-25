@@ -1,0 +1,46 @@
+<app-header-prof></app-header-prof>
+
+
+<div class="pc-container">
+  <div class="pcoded-content">
+
+    <div class="col-md-7 offset-md-2">
+      <div class="card user-card user-card-5 " style="height: 100%;">
+
+
+        <form [formGroup]="updateParam" (ngSubmit)="updateParametre()" class=" border border-light p-5">
+
+          <div>
+            <div>
+              <div class="form-group mb-0 mt-2">
+                <label class="control-label">Note minimal </label>
+                <input type="number" class="form-control" placeholder="Note minimal" formControlName="note" />
+              </div>
+              <div *ngIf="note.touched && note.invalid">
+                <small *ngIf="note.errors.required" class="text-danger"> La note minimal est obligatoire<br></small>
+              </div>
+            </div>
+            <div>
+              <div class="form-group mb-0 mt-4">
+                <label class="control-label">Temps de chaque question</label>
+                <input type="number" class="form-control" placeholder="Temps de chaque question"
+                  formControlName="timeQuestion" />
+              </div>
+              <div *ngIf="note.touched && note.invalid">
+                <small *ngIf="note.errors.required" class="text-danger"> La note minimal est obligatoire<br></small>
+              </div>
+            </div>
+
+          </div>
+          <div class='row '>
+            <div class="col-md-5 pt-5">
+              <button class="btn btn-lg " style="color: white; background-color:#003366;" type="submit">Modifier </button>
+              <button class="btn btn-lg btn-danger ml-2" type="submit"
+                [routerLink]="['/afficheTestEvaluation']">Annuler</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

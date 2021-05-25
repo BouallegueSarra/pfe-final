@@ -1,0 +1,99 @@
+ <app-header-etudiant></app-header-etudiant>
+
+
+
+<div class="pc-container">
+  <div class="pcoded-content ">
+    <div> 
+
+
+      
+      <div *ngIf="!quizOver">
+        <div class="text-center pt-3">
+
+
+          <div id="fh5co-logo" class="pb-5"><a>Test d'évaluation de niveau <span style="color: #7257EB;">
+                {{inforUsers.niveau}}</span></a></div>
+        </div>
+      
+        <div class="container mt-sm-3 my-1">
+          <h1 *ngIf="counter<10"><i class="fas fa-clock"></i> {{counter}} </h1>
+          <h1 *ngIf="counter>=10"> <i class="fas fa-clock"></i>  {{counter}}  </h1> 
+         <h1> {{minute}}</h1>
+          <app-question-evaluation [questionIndex]="currentIndex" (totalQuestions)="getTotalQuestions($event)"
+            (answers)="receiveAnswers($event)">
+          </app-question-evaluation>
+
+
+          <button type="button" class="btn btn-primary col-2 offset-9" *ngIf="currentIndex<totalQuestions-1"
+            (click)="goNext()">Suivant</button>
+          <button type="button" class="btn btn-primary col-2 offset-9" *ngIf="currentIndex==totalQuestions-1"
+            (click)="goNext()">Confirmer</button>
+
+        </div>
+
+
+       
+      </div>
+        <!-- This div renders if quizOver is true -->
+        <div *ngIf="quizOver && score>=this.bareme[0].note " class="border">
+
+          <div class="col-md-12 col-lg-8">
+
+            <div class="card col-12 offset-4">
+              <div class="card-body text-center">
+
+
+                <h2 class="m-t-20"> Félicitations</h2>
+                <hr>
+                <h1 class="m-t-20">Votre score de test est : <span style="color: #7257EB;">{{score}}
+                    points</span> </h1>
+
+                <div class="card-body text-center">
+
+
+                  <h2 class="m-t-20"> Votre niveau :</h2>
+                  <h1 class="m-t-20" class="niv-style"><span style="color: #7257EB;"> {{this.nouv_niv}}</span> </h1>
+
+                  <button [routerLink]="['/consultCours']" class="btn btn-md btn-round"
+                    style="color: white; background-color:#003366;"><i class="fa fa-eye pr-2"></i>Voir le cours</button>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="quizOver && this.score<this.bareme[0].note  " class="border">
+
+          <div class="col-md-12 col-lg-8">
+
+            <div class="card col-12 offset-4">
+              <div class="card-body text-center">
+
+
+                <h2 class="m-t-20"> Malheuresement, vous n'avez pas réussit le test</h2>
+                <hr>
+                <h1 class="m-t-20">Votre score de test est : <span style="color: #7257EB;">{{score}}
+                    points</span> </h1>
+
+                <div class="card-body text-center">
+
+                  <button [routerLink]="['/consultCours']" class="btn btn-md btn-round"
+                    style="color: white; background-color:#003366;"><i class="fa fa-eye pr-2"></i>Voir le cours</button>
+                </div>
+
+
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+  </div>

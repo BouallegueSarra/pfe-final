@@ -1,0 +1,113 @@
+.fh5co-nav #fh5co-logo {
+    font-size: 25px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-weight: 800;
+    font-family: "Work Sans", Arial, sans-serif;
+    text-decoration:none; 
+
+
+  }
+
+
+  .user-prof{
+    width: 45%;
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.user-name2 {
+
+color:white;
+text-transform: capitalize;
+
+}
+
+.user-name {
+    text-transform: capitalize;
+}
+
+
+.logo {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+  .fh5co-nav #fh5co-logo a span {
+    color: #6f42c1;
+
+  }
+  .imgUser {
+    font-size: 53px;
+    padding-top: 0px;
+    text-align: center;
+    color: #333333;
+}
+
+
+.material-icons{
+    width: 20%;
+    height: 20%;    font-size: 33px;
+
+    
+}
+.material-icons a {
+    font-size: 46px;
+    
+}
+.menuAdmin {
+    
+    width: 20%;
+    background-color:#222f4f ;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+}
+
+
+.menuAdmin h6 {
+    color: white !important;
+    padding-left: 50px;
+    margin-top: -17px;
+    padding-bottom: 51px;
+}
+
+
+
+
+
+.menuAdmin a {
+    display: block;
+    color: rgb(207, 192, 192);
+    padding: 20px ;
+    text-decoration: none !important;
+}
+
+.menuAdmin a.active {
+    background-color: #656169;
+    color: white;
+}
+
+.menuAdmin a:hover:not(.active) {
+   
+    color: white;
+}
+
+.img_logo{
+    width: 30%;
+    height: 10%;
+    text-align:center;
+    Margin : auto;
+    Display:flex;
+}
+.iconlogout {
+    background-color: white;
+    height: 60px;
+    padding: 5px 25px;
+}
+
